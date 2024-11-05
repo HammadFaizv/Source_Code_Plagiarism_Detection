@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            div.jack{
+                counter-reset: line;
+                overflow-x:auto;
+                overflow-y: auto;
+                scrollbar-face-color:dimgrey;
+                white-space: nowrap;
+                height:70%;
+                margin:5px;
+            }
+            h2{
+                margin-top:0;
+            }
+            code{
+                counter-increment: line;
+                display: block;
+                font-size: 12px;
+            }
+            code:before{
+                content: counter(line);
+                color: black;
+                -webkit-user-select: none;
+            }
+        </style>
+    </head>
+
+    <body class="grey lighten-2">
+        <div class="" style="padding-left:2%;padding-right: 2%">
+            <div class="row">
+                <a class="waves-effect waves-light btn purple lighten-2" href="../ml_results.html" style="margin:15px">Home</a>
+                <h5 class="center-align">Match for ThreeSumSolution.java and TripletSum.java</h5>
+                <h2 class="center-align"><b>90.06%</b></h2>
+
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <div class="divider"></div>
+                    <h2 class="center-align">ThreeSumSolution.java</h2>
+                    <div class="divider"></div>
+                    <div class="row grey lighten-1 jack z-depth-2">
+                            <code>  import java.util.*;</code><code>  </code><code>  public class ThreeSumSolution {</code><code>  </code><code>      public List<List<Integer>> threeSum(int[] nums) {</code><code>          List<List<Integer>> result = new ArrayList<>();</code><code>          </code><code>          // Sort the array to facilitate the two-pointer approach</code><code>          Arrays.sort(nums);</code><code>          </code><code>          // Traverse through each number, considering it as the first element of the triplet</code><code>          for (int i = 0; i < nums.length - 2; i++) {</code><code>              // Skip duplicate values for the first element</code><code>              if (i > 0 && nums[i] == nums[i - 1]) {</code><code>                  continue;</code><code>              }</code><code>              </code><code>              int target = -nums[i]; // target for the two-pointer search</code><code>              int left = i + 1;</code><code>              int right = nums.length - 1;</code><code>  </code><code>              // Two-pointer search for the remaining two elements</code><code>              while (left < right) {</code><code>                  int sum = nums[left] + nums[right];</code><code>                  </code><code>                  if (sum == target) {</code><code>                      // Add the triplet to the result</code><code>                      result.add(Arrays.asList(nums[i], nums[left], nums[right]));</code><code>                      </code><code>                      // Move pointers and skip duplicates</code><code>                      left++;</code><code>                      right--;</code><code>                      </code><code>                      // Skip duplicates for the second element</code><code>                      while (left < right && nums[left] == nums[left - 1]) {</code><code>                          left++;</code><code>                      }</code><code>                      </code><code>                      // Skip duplicates for the third element</code><code>                      while (left < right && nums[right] == nums[right + 1]) {</code><code>                          right--;</code><code>                      }</code><code>                  } else if (sum < target) {</code><code>                      left++; // Increase sum by moving the left pointer</code><code>                  } else {</code><code>                      right--; // Decrease sum by moving the right pointer</code><code>                  }</code><code>              }</code><code>          }</code><code>          </code><code>          return result;</code><code>      }</code><code>  </code><code>      // Testing the solution</code><code>      public static void main(String[] args) {</code><code>          ThreeSumSolution solution = new ThreeSumSolution();</code><code>          int[] nums = {-1, 0, 1, 2, -1, -4};</code><code>          </code><code>          List<List<Integer>> result = solution.threeSum(nums);</code><code>          System.out.println("Triplets with sum zero:");</code><code>          for (List<Integer> triplet : result) {</code><code>              System.out.println(triplet);</code><code>          }</code><code>      }</code><code>  }</code><code>  </code>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="divider"></div>
+                    <h2 class="center-align">TripletSum.java</h2>
+                    <div class="divider"></div>
+                    <div class="row grey lighten-1 jack z-depth-2">
+                            <code>  import java.util.*;</code><code>  </code><code>  public class TripletSum {</code><code>  </code><code>      public List<List<Integer>> findTriplets(int[] array) {</code><code>          List<List<Integer>> results = new ArrayList<>();</code><code>  </code><code>          // Exit early if the array is too small to have a triplet</code><code>          if (array == null || array.length < 3) {</code><code>              return results;</code><code>          }</code><code>  </code><code>          // Sort to use a two-pointer approach</code><code>          Arrays.sort(array);</code><code>  </code><code>          // Loop through the array, treating each element as the first in a potential triplet</code><code>          for (int first = 0; first < array.length - 2; first++) {</code><code>              // Skip duplicate starting elements</code><code>              if (first > 0 && array[first] == array[first - 1]) {</code><code>                  continue;</code><code>              }</code><code>  </code><code>              int requiredSum = -array[first];</code><code>              int pointer1 = first + 1;</code><code>              int pointer2 = array.length - 1;</code><code>  </code><code>              // Two-pointer approach to find pairs that sum to the required value</code><code>              while (pointer1 < pointer2) {</code><code>                  int currentSum = array[pointer1] + array[pointer2];</code><code>                  </code><code>                  if (currentSum == requiredSum) {</code><code>                      // Store the found triplet</code><code>                      results.add(Arrays.asList(array[first], array[pointer1], array[pointer2]));</code><code>                      </code><code>                      // Move both pointers inward and skip duplicates</code><code>                      pointer1++;</code><code>                      pointer2--;</code><code>  </code><code>                      // Skip duplicate second element values</code><code>                      while (pointer1 < pointer2 && array[pointer1] == array[pointer1 - 1]) {</code><code>                          pointer1++;</code><code>                      }</code><code>                      </code><code>                      // Skip duplicate third element values</code><code>                      while (pointer1 < pointer2 && array[pointer2] == array[pointer2 + 1]) {</code><code>                          pointer2--;</code><code>                      }</code><code>                  } else if (currentSum < requiredSum) {</code><code>                      pointer1++;</code><code>                  } else {</code><code>                      pointer2--;</code><code>                  }</code><code>              }</code><code>          }</code><code>  </code><code>          return results;</code><code>      }</code><code>  </code><code>      // Testing the modified solution</code><code>      public static void main(String[] args) {</code><code>          TripletSum solution = new TripletSum();</code><code>          int[] sampleArray = {-1, 0, 1, 2, -1, -4};</code><code>  </code><code>          List<List<Integer>> results = solution.findTriplets(sampleArray);</code><code>          System.out.println("Triplets with sum zero:");</code><code>          for (List<Integer> triplet : results) {</code><code>              System.out.println(triplet);</code><code>          }</code><code>      }</code><code>  }</code><code>  </code>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                          <th>File 1: ThreeSumSolution.java</th>
+                          <th>File 2: TripletSum.java</th>
+                          <th>Tokens</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="../js/materialize.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            div.jack{
+                counter-reset: line;
+                overflow-x:auto;
+                overflow-y: auto;
+                scrollbar-face-color:dimgrey;
+                white-space: nowrap;
+                height:70%;
+                margin:5px;
+            }
+            h2{
+                margin-top:0;
+            }
+            code{
+                counter-increment: line;
+                display: block;
+                font-size: 12px;
+            }
+            code:before{
+                content: counter(line);
+                color: black;
+                -webkit-user-select: none;
+            }
+        </style>
+    </head>
+
+    <body class="grey lighten-2">
+        <div class="" style="padding-left:2%;padding-right: 2%">
+            <div class="row">
+                <a class="waves-effect waves-light btn purple lighten-2" href="../quick_gst_results.html" style="margin:15px">Home</a>
+                <h5 class="center-align">Match for CommonSubstringFinder.java and LongestCommonSubstring.java</h5>
+                <h2 class="center-align"><b>92.01%</b></h2>
+
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <div class="divider"></div>
+                    <h2 class="center-align">CommonSubstringFinder.java</h2>
+                    <div class="divider"></div>
+                    <div class="row grey lighten-1 jack z-depth-2">
+                            <code class='pink lighten-3'>  public class CommonSubstringFinder {</code><code class='pink lighten-3'>     public static void main(String[] args) {</code><code class='pink lighten-3'>         String string1 = "abcdef";</code><code class='pink lighten-3'>         String string2 = "zbcdf";</code><code class='pink lighten-3'>         </code><code class='pink lighten-3'>         String longestSubstring = findLongestCommonSubstring(string1, string2);</code><code class='pink lighten-3'>         System.out.println("The longest common substring is: " + longestSubstring);</code><code class='pink lighten-3'>     }</code><code class='pink lighten-3'>     </code><code class='pink lighten-3'>     public static String findLongestCommonSubstring(String string1, String string2) {</code><code class='pink lighten-3'>         int longestLength = 0;</code><code class='pink lighten-3'>         int substringEndIndex = 0;</code><code class='pink lighten-3'>         int[][] lookupTable = new int[string1.length() + 1][string2.length() + 1];</code><code class='pink lighten-3'>         </code><code class='pink lighten-3'>         for (int i = 1; i <= string1.length(); i++) {</code><code class='pink lighten-3'>             for (int j = 1; j <= string2.length(); j++) {</code><code class='pink lighten-3'>                 if (string1.charAt(i - 1) == string2.charAt(j - 1)) {</code><code class='pink lighten-3'>                     lookupTable[i][j] = lookupTable[i - 1][j - 1] + 1;</code><code class='pink lighten-3'>                     if (lookupTable[i][j] > longestLength) {</code><code class='pink lighten-3'>                         longestLength = lookupTable[i][j];</code><code class='pink lighten-3'>                         substringEndIndex = i;</code><code>                     }</code><code>                 } else {</code><code>                     lookupTable[i][j] = 0;</code><code>                 }</code><code>             }</code><code>         }</code><code>         </code><code>         return string1.substring(substringEndIndex - longestLength, substringEndIndex);</code><code>     }</code><code>  }</code><code>  </code>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="divider"></div>
+                    <h2 class="center-align">LongestCommonSubstring.java</h2>
+                    <div class="divider"></div>
+                    <div class="row grey lighten-1 jack z-depth-2">
+                            <code class='pink lighten-3'>  public class LongestCommonSubstring {</code><code class='pink lighten-3'>     public static void main(String[] args) {</code><code class='pink lighten-3'>         String str1 = "abcdef";</code><code class='pink lighten-3'>         String str2 = "zbcdf";</code><code class='pink lighten-3'>         </code><code class='pink lighten-3'>         String result = longestCommonSubstring(str1, str2);</code><code class='pink lighten-3'>         System.out.println("Longest Common Substring: " + result);</code><code class='pink lighten-3'>     }</code><code class='pink lighten-3'>     </code><code class='pink lighten-3'>     public static String longestCommonSubstring(String str1, String str2) {</code><code class='pink lighten-3'>         int maxLength = 0;</code><code class='pink lighten-3'>         int endIndex = 0;</code><code class='pink lighten-3'>         int[][] dp = new int[str1.length() + 1][str2.length() + 1];</code><code class='pink lighten-3'>         </code><code class='pink lighten-3'>         for (int i = 1; i <= str1.length(); i++) {</code><code class='pink lighten-3'>             for (int j = 1; j <= str2.length(); j++) {</code><code class='pink lighten-3'>                 if (str1.charAt(i - 1) == str2.charAt(j - 1)) {</code><code class='pink lighten-3'>                     dp[i][j] = dp[i - 1][j - 1] + 1;</code><code class='pink lighten-3'>                     if (dp[i][j] > maxLength) {</code><code class='pink lighten-3'>                         maxLength = dp[i][j];</code><code class='pink lighten-3'>                         endIndex = i;</code><code>                     }</code><code>                 }</code><code>             }</code><code>         }</code><code>         </code><code>         return str1.substring(endIndex - maxLength, endIndex);</code><code>     }</code><code>  }</code><code>  </code>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                          <th>File 1: CommonSubstringFinder.java</th>
+                          <th>File 2: LongestCommonSubstring.java</th>
+                          <th>Tokens</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      
+                            <tr class="pink lighten-3">
+                                <td>CommonSubstringFinder.java (1, 21)</td>
+                                <td>LongestCommonSubstring.java (1, 21)</td>
+                                <td>21</td>
+                            </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="../js/materialize.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            div.jack{
+                counter-reset: line;
+                overflow-x:auto;
+                overflow-y: auto;
+                scrollbar-face-color:dimgrey;
+                white-space: nowrap;
+                height:70%;
+                margin:5px;
+            }
+            h2{
+                margin-top:0;
+            }
+            code{
+                counter-increment: line;
+                display: block;
+                font-size: 12px;
+            }
+            code:before{
+                content: counter(line);
+                color: black;
+                -webkit-user-select: none;
+            }
+        </style>
+    </head>
+
+    <body class="grey lighten-2">
+        <div class="" style="padding-left:2%;padding-right: 2%">
+            <div class="row">
+                <a class="waves-effect waves-light btn purple lighten-2" href="../quick_gst_results.html" style="margin:15px">Home</a>
+                <h5 class="center-align">Match for ThreeSumSolution.java and TripletSum.java</h5>
+                <h2 class="center-align"><b>97.24%</b></h2>
+
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <div class="divider"></div>
+                    <h2 class="center-align">ThreeSumSolution.java</h2>
+                    <div class="divider"></div>
+                    <div class="row grey lighten-1 jack z-depth-2">
+                            <code class='purple lighten-3'>  import java.util.*;</code><code class='purple lighten-3'>  </code><code class='purple lighten-3'>  public class ThreeSumSolution {</code><code class='purple lighten-3'>  </code><code class='purple lighten-3'>      public List<List<Integer>> threeSum(int[] nums) {</code><code class='purple lighten-3'>          List<List<Integer>> result = new ArrayList<>();</code><code>          </code><code>          // Sort the array to facilitate the two-pointer approach</code><code class='pink lighten-3'>          Arrays.sort(nums);</code><code class='pink lighten-3'>          </code><code class='pink lighten-3'>          // Traverse through each number, considering it as the first element of the triplet</code><code class='pink lighten-3'>          for (int i = 0; i < nums.length - 2; i++) {</code><code class='pink lighten-3'>              // Skip duplicate values for the first element</code><code class='pink lighten-3'>              if (i > 0 && nums[i] == nums[i - 1]) {</code><code class='pink lighten-3'>                  continue;</code><code class='pink lighten-3'>              }</code><code class='pink lighten-3'>              </code><code class='pink lighten-3'>              int target = -nums[i]; // target for the two-pointer search</code><code class='pink lighten-3'>              int left = i + 1;</code><code class='pink lighten-3'>              int right = nums.length - 1;</code><code class='pink lighten-3'>  </code><code class='pink lighten-3'>              // Two-pointer search for the remaining two elements</code><code class='pink lighten-3'>              while (left < right) {</code><code class='pink lighten-3'>                  int sum = nums[left] + nums[right];</code><code class='pink lighten-3'>                  </code><code class='pink lighten-3'>                  if (sum == target) {</code><code class='pink lighten-3'>                      // Add the triplet to the result</code><code class='pink lighten-3'>                      result.add(Arrays.asList(nums[i], nums[left], nums[right]));</code><code class='pink lighten-3'>                      </code><code class='pink lighten-3'>                      // Move pointers and skip duplicates</code><code class='pink lighten-3'>                      left++;</code><code class='pink lighten-3'>                      right--;</code><code class='pink lighten-3'>                      </code><code class='pink lighten-3'>                      // Skip duplicates for the second element</code><code class='pink lighten-3'>                      while (left < right && nums[left] == nums[left - 1]) {</code><code class='pink lighten-3'>                          left++;</code><code class='pink lighten-3'>                      }</code><code class='pink lighten-3'>                      </code><code class='pink lighten-3'>                      // Skip duplicates for the third element</code><code class='pink lighten-3'>                      while (left < right && nums[right] == nums[right + 1]) {</code><code class='pink lighten-3'>                          right--;</code><code class='pink lighten-3'>                      }</code><code class='pink lighten-3'>                  } else if (sum < target) {</code><code class='pink lighten-3'>                      left++; // Increase sum by moving the left pointer</code><code class='pink lighten-3'>                  } else {</code><code class='pink lighten-3'>                      right--; // Decrease sum by moving the right pointer</code><code class='pink lighten-3'>                  }</code><code class='pink lighten-3'>              }</code><code class='pink lighten-3'>          }</code><code class='pink lighten-3'>          </code><code class='pink lighten-3'>          return result;</code><code class='pink lighten-3'>      }</code><code class='pink lighten-3'>  </code><code class='pink lighten-3'>      // Testing the solution</code><code class='pink lighten-3'>      public static void main(String[] args) {</code><code class='pink lighten-3'>          ThreeSumSolution solution = new ThreeSumSolution();</code><code class='pink lighten-3'>          int[] nums = {-1, 0, 1, 2, -1, -4};</code><code class='pink lighten-3'>          </code><code class='pink lighten-3'>          List<List<Integer>> result = solution.threeSum(nums);</code><code class='pink lighten-3'>          System.out.println("Triplets with sum zero:");</code><code class='pink lighten-3'>          for (List<Integer> triplet : result) {</code><code class='pink lighten-3'>              System.out.println(triplet);</code><code>          }</code><code>      }</code><code>  }</code><code>  </code>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="divider"></div>
+                    <h2 class="center-align">TripletSum.java</h2>
+                    <div class="divider"></div>
+                    <div class="row grey lighten-1 jack z-depth-2">
+                            <code class='purple lighten-3'>  import java.util.*;</code><code class='purple lighten-3'>  </code><code class='purple lighten-3'>  public class TripletSum {</code><code class='purple lighten-3'>  </code><code class='purple lighten-3'>      public List<List<Integer>> findTriplets(int[] array) {</code><code class='purple lighten-3'>          List<List<Integer>> results = new ArrayList<>();</code><code>  </code><code>          // Exit early if the array is too small to have a triplet</code><code>          if (array == null || array.length < 3) {</code><code>              return results;</code><code>          }</code><code>  </code><code>          // Sort to use a two-pointer approach</code><code class='pink lighten-3'>          Arrays.sort(array);</code><code class='pink lighten-3'>  </code><code class='pink lighten-3'>          // Loop through the array, treating each element as the first in a potential triplet</code><code class='pink lighten-3'>          for (int first = 0; first < array.length - 2; first++) {</code><code class='pink lighten-3'>              // Skip duplicate starting elements</code><code class='pink lighten-3'>              if (first > 0 && array[first] == array[first - 1]) {</code><code class='pink lighten-3'>                  continue;</code><code class='pink lighten-3'>              }</code><code class='pink lighten-3'>  </code><code class='pink lighten-3'>              int requiredSum = -array[first];</code><code class='pink lighten-3'>              int pointer1 = first + 1;</code><code class='pink lighten-3'>              int pointer2 = array.length - 1;</code><code class='pink lighten-3'>  </code><code class='pink lighten-3'>              // Two-pointer approach to find pairs that sum to the required value</code><code class='pink lighten-3'>              while (pointer1 < pointer2) {</code><code class='pink lighten-3'>                  int currentSum = array[pointer1] + array[pointer2];</code><code class='pink lighten-3'>                  </code><code class='pink lighten-3'>                  if (currentSum == requiredSum) {</code><code class='pink lighten-3'>                      // Store the found triplet</code><code class='pink lighten-3'>                      results.add(Arrays.asList(array[first], array[pointer1], array[pointer2]));</code><code class='pink lighten-3'>                      </code><code class='pink lighten-3'>                      // Move both pointers inward and skip duplicates</code><code class='pink lighten-3'>                      pointer1++;</code><code class='pink lighten-3'>                      pointer2--;</code><code class='pink lighten-3'>  </code><code class='pink lighten-3'>                      // Skip duplicate second element values</code><code class='pink lighten-3'>                      while (pointer1 < pointer2 && array[pointer1] == array[pointer1 - 1]) {</code><code class='pink lighten-3'>                          pointer1++;</code><code class='pink lighten-3'>                      }</code><code class='pink lighten-3'>                      </code><code class='pink lighten-3'>                      // Skip duplicate third element values</code><code class='pink lighten-3'>                      while (pointer1 < pointer2 && array[pointer2] == array[pointer2 + 1]) {</code><code class='pink lighten-3'>                          pointer2--;</code><code class='pink lighten-3'>                      }</code><code class='pink lighten-3'>                  } else if (currentSum < requiredSum) {</code><code class='pink lighten-3'>                      pointer1++;</code><code class='pink lighten-3'>                  } else {</code><code class='pink lighten-3'>                      pointer2--;</code><code class='pink lighten-3'>                  }</code><code class='pink lighten-3'>              }</code><code class='pink lighten-3'>          }</code><code class='pink lighten-3'>  </code><code class='pink lighten-3'>          return results;</code><code class='pink lighten-3'>      }</code><code class='pink lighten-3'>  </code><code class='pink lighten-3'>      // Testing the modified solution</code><code class='pink lighten-3'>      public static void main(String[] args) {</code><code class='pink lighten-3'>          TripletSum solution = new TripletSum();</code><code class='pink lighten-3'>          int[] sampleArray = {-1, 0, 1, 2, -1, -4};</code><code class='pink lighten-3'>  </code><code class='pink lighten-3'>          List<List<Integer>> results = solution.findTriplets(sampleArray);</code><code class='pink lighten-3'>          System.out.println("Triplets with sum zero:");</code><code class='pink lighten-3'>          for (List<Integer> triplet : results) {</code><code class='pink lighten-3'>              System.out.println(triplet);</code><code>          }</code><code>      }</code><code>  }</code><code>  </code>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                          <th>File 1: ThreeSumSolution.java</th>
+                          <th>File 2: TripletSum.java</th>
+                          <th>Tokens</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      
+                            <tr class="pink lighten-3">
+                                <td>TripletSum.java (9, 62)</td>
+                                <td>ThreeSumSolution.java (14, 67)</td>
+                                <td>54</td>
+                            </tr>
+                            <tr class="purple lighten-3">
+                                <td>TripletSum.java (1, 6)</td>
+                                <td>ThreeSumSolution.java (1, 6)</td>
+                                <td>6</td>
+                            </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="../js/materialize.min.js"></script>
+    </body>
+</html>
